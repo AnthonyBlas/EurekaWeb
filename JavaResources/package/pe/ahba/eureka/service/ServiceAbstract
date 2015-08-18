@@ -1,0 +1,14 @@
+package pe.ahba.eureka.service;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import pe.ahba.eureka.dao.connection.MyBatisConnectionFactory;
+
+public abstract class ServiceAbstract {
+	
+	protected SqlSessionFactory sqlSessionFactory;
+	
+	public ServiceAbstract(){
+		sqlSessionFactory = MyBatisConnectionFactory.getSqlSessionFactory();
+	}
+}
