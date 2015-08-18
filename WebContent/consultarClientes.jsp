@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+body {
+	background-color: #0A2229;
+}
+
+.PAGINA{
+	width: 900px;
+	margin: 5px auto;
+	padding: 5px;
+	background-color: #086A87;
+	color: #0B0B61;
+	font-size: 12px;
+}
+
+.MENU{
+  margin: 5px;
+  padding: 5px;
+  width: 880;
+  background-color: #D8D8D8;
+  color: #0A0A2A;
+  font-size: 12px;
+}
+
+.CONTENIDO{
+  margin: 5px;
+  padding: 5px;
+  width: 880;
+  background-color: white;
+  font-size: 12px;
+}
