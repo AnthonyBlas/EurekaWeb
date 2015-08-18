@@ -1,0 +1,11 @@
+package pe.ahba.eureka.dao.espec;
+
+import java.util.List;
+
+import pe.ahba.eureka.model.ClienteBean;
+import pe.ahba.eureka.model.ComboBean;
+
+public interface ClienteMapper {
+	List<ClienteBean> getClientes(ClienteBean clienteBean);
+	
+}
