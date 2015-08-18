@@ -1,0 +1,11 @@
+package pe.ahba.eureka.dao.espec;
+
+import org.apache.ibatis.annotations.Param;
+import pe.ahba.eureka.model.EmpleadoBean;
+
+public interface EmpleadoMapper {
+
+	EmpleadoBean getEmpleadoPorUsuario(
+			@Param("usuario") String usuario,
+			@Param("clave") String clave);
+}
