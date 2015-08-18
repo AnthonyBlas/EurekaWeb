@@ -1,0 +1,19 @@
+package pe.ahba.eureka.dao.prueba;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import pe.ahba.eureka.dao.connection.MyBatisConnectionFactory;
+import pe.ahba.eureka.dao.espec.EmpleadoMapper;
+import pe.ahba.eureka.model.EmpleadoBean;
+
+public class Prueba01 {
+	public static void main(String[] args) {
+		SqlSessionFactory ssf = MyBatisConnectionFactory.getSqlSessionFactory();
+		SqlSession ss = ssf.openSession();
+		EmpleadoMapper empleadoMapper = ss.getMapper(EmpleadoMapper.class);
+		EmpleadoBean bean = empleadoMapper.getEmpleadoPorUsuario("cromero", "chicho");
+		ss.close();
+		System.out.println("Nombre\t"+bean.getNombre());
+	}
+}
