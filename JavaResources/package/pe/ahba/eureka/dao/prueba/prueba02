@@ -1,0 +1,28 @@
+package pe.ahba.eureka.dao.prueba;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import pe.ahba.eureka.dao.connection.MyBatisConnectionFactory;
+import pe.ahba.eureka.dao.espec.ClienteMapper;
+import pe.ahba.eureka.model.ClienteBean;
+
+public class Prueba02 {
+	public static void main(String[] args) {
+		SqlSessionFactory ssf = MyBatisConnectionFactory.getSqlSessionFactory();
+		SqlSession ss = ssf.openSession();
+		ClienteMapper clienteMapper = ss.getMapper(ClienteMapper.class);
+		ClienteBean bean = new ClienteBean();
+		//bean.setPaterno("CO");
+		bean.setNombre("ER");
+		bean.establecerDatos();
+		List<ClienteBean> lista = clienteMapper.getClientes(bean);
+		ss.close();
+		for(ClienteBean b: lista){
+			System.out.println(b.getNombre());
+		}
+		System.out.println("FIN\t");
+	}
+}
