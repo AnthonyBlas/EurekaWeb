@@ -1,0 +1,55 @@
+using AppDemo03.Controller;
+using AppDemo03.Entity;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AppDemo03.View
+{
+    public partial class EmpleadoView : Form
+    {
+        public EmpleadoView()
+        {
+            InitializeComponent();
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            procesar();
+        }
+
+        //variable de la clase empleado
+        Empleado emp;
+        private void procesar()
+        {
+            //crear objeto emp
+            emp = new Empleado() {
+                NombreEmpleado = txtNombre.Text,
+                Dias = int.Parse(txtDias.Text),
+                Horas = int.Parse(txtHora.Text),
+                Pago = decimal.Parse(txtPago.Text)    
+            };
+            //procesar
+            string x = new EmpleadoController().calcularSueldo(emp);
+            txtBoleta.Text = "";
+            txtBoleta.AppendText(x);
+        }
+
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmpleadoView_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
