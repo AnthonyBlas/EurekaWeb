@@ -1,0 +1,28 @@
+using AppDemo03.Entity;
+using AppDemo03.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo03.Model
+{
+    public class EmpleadoModel{
+        //metodo para procesar datos
+        public void procesarDatos(Empleado emp){
+            //Empleado emp : paso por referencia
+            //emp servira para llamar a todas las cajas y esto pasara a toda la clase empleado
+
+            //calcular total, renta y neto
+            emp.Total = emp.Dias * emp.Horas * emp.Pago;
+            if (emp.Total>1500){
+                emp.Renta = emp.Total * Constante.RENTA;
+            }else{
+                emp.Renta = 0;
+            }
+            emp.Neto = emp.Total - emp.Renta;
+
+        }
+    }
+}
