@@ -1,0 +1,62 @@
+using AppDemo02.Controller;
+using AppDemo02.Entity;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AppDemo02.View
+{
+    public partial class PedidoView : Form
+    {
+        public PedidoView()
+        {
+            InitializeComponent();
+        }
+
+        //instanciar objeto de la clase pedido controller
+        PedidoController obj = new PedidoController();
+        Pedido pe;
+
+
+        private void label1_Click(object sender, EventArgs e){
+           
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e){
+            // crear objeto pe
+            pe = new Pedido();
+
+            //asignar valores al objeto pe
+            pe.Proveedor = txtProvedor.Text;
+            pe.Importe = decimal.Parse(txtImporte.Text);
+
+            //procesar pedido
+            obj.calcularPedido(pe);
+
+            //ver boleta de pedido
+            txtBoleta.Text = "";
+            txtBoleta.AppendText("BOLETA DE PEDIDO\n");
+            txtBoleta.AppendText("PROVEEDOR\n"+pe.Proveedor);
+            txtBoleta.AppendText("IMPORTE\n" + pe.Importe);
+            txtBoleta.AppendText("IMPUESTO\n" + pe.Impuesto);
+            txtBoleta.AppendText("TOTAL A PAGAR\n" + pe.Total);
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PedidoView_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
