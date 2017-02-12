@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo02.Entity
+{
+    public class Pedido{
+        //definir las propiedades
+        public String Proveedor{ get; set; }
+        public decimal Importe { get; set; }
+        public decimal Impuesto { get; set; }
+        public decimal Total { get; set; }
+        
+    }
+        
+
+}
