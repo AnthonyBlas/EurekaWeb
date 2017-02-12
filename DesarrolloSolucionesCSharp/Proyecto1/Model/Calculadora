@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo01.Model{
+    public class Calculadora{
+
+        public decimal Sumar(decimal x, decimal y){
+            return x + y;
+        }
+            
+        public decimal Restar(decimal x, decimal y){
+            return x - y;
+        }
+
+        public decimal Multiplicar(decimal x, decimal y){
+            return x*y;
+        }
+
+        public decimal Dividir(decimal x, decimal y){
+            return x/y;
+        }
+    }
+}
