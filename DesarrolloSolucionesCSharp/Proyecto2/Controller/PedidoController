@@ -1,0 +1,26 @@
+using AppDemo02.Entity;
+using AppDemo02.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo02.Controller
+{
+    public class PedidoController{
+        //declarar variable de la clase pedido model
+        PedidoModel model;  
+        //constructor
+        public PedidoController(){
+            //crear objeto model
+            model = new PedidoModel();
+        }
+
+
+        //metodos de negocio
+        public void calcularPedido(Pedido x){
+            model.procesarDatos(x);
+        }
+    }
+}
