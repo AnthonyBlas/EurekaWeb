@@ -1,0 +1,88 @@
+using AppDemo01.Model;
+using System;
+using System.Windows.Forms;
+
+namespace AppDemo01.View
+{
+    public partial class CalculadoraView : Form
+        //:: significa herencia de una clase llamada Form
+    {
+        public CalculadoraView()
+        {
+            InitializeComponent();//metodo de ejecucion que sirve la construccion de controles dinamicamente
+
+        }
+
+        private void CalculadoraView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuma_Click(object sender, EventArgs e)
+        {
+            operacion(1);
+        }
+
+        private void btnResta_Click(object sender, EventArgs e)
+        {
+            operacion(2);
+        }
+
+        private void btnMultiplicar_Click(object sender, EventArgs e)
+        {
+            operacion(3);
+        }
+
+        private void btnDividir_Click(object sender, EventArgs e)
+        {
+            operacion(4);
+        }
+
+        //instanciar objeto de la clase calculadora
+        Calculadora cal = new Calculadora();
+
+        private void operacion(int op){
+            decimal res = 0;
+            switch (op){
+            case 1:
+                res = cal.Sumar(decimal.Parse(txtNum1.Text), decimal.Parse(txtNum2.Text));
+                break;
+            case 2:
+                res = cal.Restar(decimal.Parse(txtNum1.Text), decimal.Parse(txtNum2.Text));
+                break;
+            case 3:
+                res = cal.Multiplicar(decimal.Parse(txtNum1.Text), decimal.Parse(txtNum2.Text));
+                break;
+            case 4:
+                res = cal.Dividir(decimal.Parse(txtNum1.Text), decimal.Parse(txtNum2.Text));
+                break;
+            }
+            txtResultado.Text = res.ToString("n2");
+        }
+
+        private void btnMr_Click(object sender, EventArgs e)
+        {
+            //limpiar cajas
+            txtNum1.Clear();
+            txtNum2.Clear();
+            txtResultado.Clear();
+            //cursos para que aparesca en primera caja
+            txtNum1.Focus();
+        }
+
+        private void btnEx_Click(object sender, EventArgs e)
+        {
+            this.Dispose();//cierra ventana
+        }
+    }
+}
