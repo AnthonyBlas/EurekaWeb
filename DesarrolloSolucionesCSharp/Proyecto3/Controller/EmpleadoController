@@ -1,0 +1,26 @@
+using AppDemo03.Entity;
+using AppDemo03.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo03.Controller
+{
+    public class EmpleadoController{
+        //metodo de negocio
+        public string calcularSueldo(Empleado em){
+            new EmpleadoModel().procesarDatos(em);
+            String boleta = "BOLETA DE PAGO\n" +
+                            "EMPLEADO : " + em.NombreEmpleado + "\n" +
+                            "DIAS TRAB : " + em.Dias + "\n" +
+                            "HORAS TRAB : " + em.Horas + "\n" +
+                            "PAGO X HORA : " + em.Pago + "\n" +
+                            "TOTAL : " + em.Total + "\n" +
+                            "RENTA(10%) : " + em.Renta + "\n" +
+                            "NETO : " + em.Neto + "\n";
+            return boleta;
+        }
+    }
+}
