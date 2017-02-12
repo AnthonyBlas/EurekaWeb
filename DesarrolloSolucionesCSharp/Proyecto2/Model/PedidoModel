@@ -1,0 +1,19 @@
+using AppDemo02.Entity;
+using AppDemo02.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo02.Model
+{
+    public class PedidoModel{
+        //metodo para procesar datos
+        public void procesarDatos(Pedido pe){
+            //calcular el impuesto
+            pe.Impuesto = pe.Importe * Constante.IGV;
+            pe.Total = pe.Importe + pe.Impuesto;
+        }
+    }
+}
