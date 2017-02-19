@@ -1,0 +1,29 @@
+using AppDemo06.Model;
+using AppDemo06.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo06.Controller
+{
+    public class Controlador
+    {
+        public static Comprobante getDocumento(int tipo)
+        {
+            Comprobante com = null;
+            switch (tipo)
+            {
+                case 1:
+                    com = new Boleta();
+                    break;
+                case 2:
+                    com = new Factura();
+                    break;
+            }
+            return com;
+        }
+
+    }
+}
