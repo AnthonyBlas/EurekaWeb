@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo05.Model
+{
+    public class Profesor : Persona{
+        private char categoria;
+
+        public char Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
+
+        private decimal sueldo;
+        public decimal Sueldo
+        {
+            get{
+                switch (this.categoria){
+                    case 'A':
+                        this.sueldo = 4000;
+                        break;
+                    case 'B':
+                        this.sueldo = 3000;
+                        break;
+                    case 'C':
+                        this.sueldo = 1500;
+                        break;
+                    default:
+                        this.sueldo = 750;
+                        break;
+                }
+                return sueldo;
+            }
+        }
+
+        public override string verDatos()
+        {
+            return base.verDatos() + "Categoria : " + Categoria + "\n" +
+                                    "Sueldo : " + Sueldo + "\n";
+        }
+
+    }
+}
