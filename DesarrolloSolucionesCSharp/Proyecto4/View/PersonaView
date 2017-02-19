@@ -1,0 +1,92 @@
+using AppDemo04.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AppDemo04.View
+{
+    public partial class PersonaView : Form
+    {
+        public PersonaView()
+        {
+            InitializeComponent();
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            calcular();
+        }
+
+        Persona per;
+        private void calcular()
+        {
+            if (rbtDocente.Checked) { 
+            per = new Docente(txtCodigo.Text,txtNombre.Text,
+                decimal.Parse(txtValor1.Text), int.Parse(txtValor2.Text));
+            }
+            if (rbtEmpleado.Checked)
+            {
+                per = new Empleado(txtCodigo.Text, txtNombre.Text,
+                    decimal.Parse(txtValor1.Text), int.Parse(txtValor2.Text));
+            }
+            MessageBox.Show(per.MostrarDatos(),"Exito");
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtDocente_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = "Sueldo por Hora";
+            label4.Text = "Numero de Horas";
+
+        }
+
+        private void rbtEmpleado_CheckedChanged(object sender, EventArgs e)
+        {
+            label3.Text = "Sueldo";
+            label4.Text = "Bonificacion";
+        }
+
+        private void txtValor1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValor2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtValor1.Clear();
+            txtValor2.Clear();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+    }
+}
