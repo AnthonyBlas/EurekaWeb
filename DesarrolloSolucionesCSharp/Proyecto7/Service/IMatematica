@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo07.Service
+{
+    public interface IMatematica
+    {
+        decimal Suma(decimal x, decimal y);
+        decimal Resta(decimal x, decimal y);
+        decimal Multiplicacion(decimal x, decimal y);
+        decimal Division(decimal x, decimal y);
+
+    }
+}
