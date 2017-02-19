@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo04.Model
+{
+    public class Docente : Persona
+    {
+        private decimal sueldoPorHora;
+        private int nHoras;
+        
+
+        //constructor
+        public Docente(string codigo, string nombre, decimal sueldoPorHora, int nHoras) 
+            : base(codigo, nombre, sueldoPorHora*nHoras)
+        {
+        }
+        
+        //metodo redefinido
+        public override string MostrarDatos(){
+            return "Docente\n" + base.MostrarDatos();
+        }
+
+    }
+}
