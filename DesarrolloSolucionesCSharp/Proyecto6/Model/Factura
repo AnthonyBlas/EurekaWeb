@@ -1,0 +1,35 @@
+using AppDemo06.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AppDemo06.Entity;
+using AppDemo06.Util;
+
+namespace AppDemo06.Model
+{
+    public class Factura : Comprobante
+    {
+        public override Item[] Documento(decimal total)
+        {
+            //calculamos el consumo, impuesto, servicio y total general
+            decimal consumo = total / (1 + Constante.IGV);
+            decimal impuesto = total - consumo;
+            decimal servicio = total * Constante.SERVICIO;
+            decimal tot = total + servicio;
+
+            //construir Factura
+            Item[] doc = new Item[5]; // doc es variable de tipo array 
+                                        //asignar valores al objeto doc
+
+            //asignar valores de los objetos doc
+            doc[0] = new Item() { Concepto = "Consumo ", Importe = consumo };
+            doc[1] = new Item() { Concepto = "Impuesto ", Importe = impuesto };
+            doc[2] = new Item() { Concepto = "Total ", Importe = total };
+            doc[3] = new Item() { Concepto = "Servicio 10% ", Importe = servicio};
+            doc[4] = new Item() { Concepto = "Total General ", Importe = tot };
+            return doc;
+        }
+    }
+}
