@@ -1,0 +1,112 @@
+using AppDemo05.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AppDemo05.View
+{
+    public partial class PersonaView : Form
+    {
+        public PersonaView()
+        {
+            InitializeComponent();
+        }
+
+        private void rbtMasculino_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtFemenino_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PersonaView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtProfesor_CheckedChanged(object sender, EventArgs e)
+        {
+            label4.Text = "Ingrese Categoria";
+        }
+
+        private void rbtAlumno_CheckedChanged(object sender, EventArgs e)
+        {
+            label4.Text = "Ingrese nota";
+        }
+
+        private void txtDatos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            calcular();
+        }
+
+        Persona obj;
+        private void calcular()
+        {
+                char sx = ' ';
+                //
+                if (rbtMasculino.Checked){
+                    sx = 'M';
+                }
+                if (rbtFemenino.Checked){
+                    sx = 'F';
+                }
+            //
+            if (rbtAlumno.Checked)
+            {
+                obj = new Alumno()
+                {
+                    Id = txtCodigo.Text,
+                    Nombre = txtNombre.Text,
+                    Sexo = sx,
+                    Nota = int.Parse(txtDatos.Text)
+                };
+            }
+                //
+                if (rbtProfesor.Checked)
+                {
+                    obj = new Profesor()
+                    {
+                        Id = txtCodigo.Text,
+                        Nombre = txtNombre.Text,
+                        Sexo = sx,
+                        Categoria = char.Parse(txtDatos.Text)
+                    };
+                }
+                rtbBoleta.Text = "";
+                rtbBoleta.AppendText("Datos de Persona\n" + obj.verDatos());
+            }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+    }
+}
