@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo04.Model
+{
+    public class Persona
+    {
+        private String codigo;
+        private String nombre;
+        private decimal sueldo;
+
+        //Constructor
+        public Persona(String codigo, String nombre, decimal sueldo)
+        {
+            this.codigo = codigo;
+            this.nombre = nombre;
+            this.sueldo = sueldo;
+        }
+
+
+        //prop y tab - metodo
+        public virtual String MostrarDatos(){
+            return "Codigo :" + this.codigo + "\n" +
+                    "Nombre :" + this.nombre + "\n" +
+                    "Sueldo :" + this.sueldo;
+        }
+    }
+}
