@@ -1,0 +1,31 @@
+using AppDemo06.Service;
+using AppDemo06.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AppDemo06.Entity;
+
+namespace AppDemo06.Model
+{
+    public class Boleta : Comprobante
+    {
+        public override Item[] Documento(decimal total)
+        {
+            //calculamos el servicio y total general
+            decimal servicio = total * Constante.SERVICIO;
+            decimal tot = total + servicio;
+
+            //construir boleta
+            Item[] doc = new Item[3]; // doc es variable de tipo array
+
+            //asignar valores de los objetos doc
+            doc[0] = new Item() { Concepto = "Total ", Importe = total };
+            doc[1] = new Item() { Concepto = "Servicio(10%) ", Importe = servicio };
+            doc[2] = new Item() { Concepto = "Total General ", Importe = tot };
+            return doc;
+        }
+        }
+}
+
