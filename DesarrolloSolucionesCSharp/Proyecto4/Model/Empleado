@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo04.Model
+{
+    public class Empleado : Persona
+    {
+        private decimal bonificacion;
+        public Empleado(string codigo, string nombre, decimal sueldo, decimal bonificacion) 
+            : base(codigo, nombre, sueldo+bonificacion){
+
+        }
+    }
+}
