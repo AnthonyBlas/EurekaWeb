@@ -1,0 +1,32 @@
+using AppDemo07.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo07.Model
+{
+    public class Matematica : IMatematica
+    {
+        public decimal Division(decimal x, decimal y)
+        {
+            return x / y;
+        }
+
+        public decimal Multiplicacion(decimal x, decimal y)
+        {
+            return x * y;
+        }
+
+        public decimal Resta(decimal x, decimal y)
+        {
+            return x - y;
+        }
+
+        public decimal Suma(decimal x, decimal y)
+        {
+            return x + y;
+        }
+    }
+}
