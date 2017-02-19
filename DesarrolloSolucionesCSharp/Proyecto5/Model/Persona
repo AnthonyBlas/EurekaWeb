@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo05.Model
+{
+    public class Persona{
+        //atributo fecha
+        protected DateTime fecha;
+
+        public string Id { get; set; }
+        public string Nombre { get; set; }
+        public char Sexo { get; set; }
+
+        public virtual string verDatos(){
+            return "Codigo : " + Id + "\n" +
+                    "Nombre : " + Nombre + "\n" +
+                    "Sexo : " + Sexo + "\n";
+        }
+    }
+}
