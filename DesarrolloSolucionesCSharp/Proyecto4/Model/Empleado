@@ -11,7 +11,12 @@ namespace AppDemo04.Model
         private decimal bonificacion;
         public Empleado(string codigo, string nombre, decimal sueldo, decimal bonificacion) 
             : base(codigo, nombre, sueldo+bonificacion){
+        }
 
+        //metodo redefinido
+        public override string MostrarDatos()
+        {
+            return "Empleado\n" + base.MostrarDatos();
         }
     }
 }
