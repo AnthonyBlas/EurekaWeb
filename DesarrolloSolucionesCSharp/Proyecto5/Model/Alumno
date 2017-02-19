@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo05.Model
+{
+    public class Alumno : Persona{
+        private int nota;
+        private string estado;
+
+        //propiedades
+        public int Nota { 
+            get { return nota; }
+            set { nota = value; }
+        }
+
+        public string Estado
+        {
+            get {
+                if (this.nota >= 14){
+                    this.estado = "APROBADO";
+                }else if (this.nota >= 10 && this.nota<14){
+                    this.estado = "SUSTITUTORIO";
+                }else{
+                    this.estado = "DESAPROBADO";
+                }
+                return estado;
+            }
+        }
+
+        public override string verDatos()
+        {
+            fecha = DateTime.Now;//fecha variable de tipo protected
+            return base.verDatos() + "Nota : "+nota+"\n"+
+                                         "Estado : "+Estado+"\n"+
+                                         "Fecha : "+fecha;
+        }
+
+
+    }
+}
