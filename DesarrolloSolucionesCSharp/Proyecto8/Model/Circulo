@@ -1,0 +1,27 @@
+using AppDemo08.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo08.Model
+{
+    public class Circulo : Figura
+    {
+        private double radio;
+        public Circulo(double radio)
+        {
+            this.radio = radio;
+        }
+        public override double Area()
+        {
+            return Math.Pow(radio, 2) * Math.PI;
+        }
+
+        public override double Perimetro()
+        {
+            return Math.PI * 2 * radio;
+        }
+    }
+}
