@@ -1,0 +1,30 @@
+
+using AppDemo08.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AppDemo08.Model
+{
+    public class Triangulo : Figura
+    {
+        private double lado;
+        private double altura;
+        public Triangulo(double lado, double altura){
+            this.lado = lado;
+            this.altura = altura;
+        }
+
+        public override double Area()
+        {
+            return (lado * altura )/ 2;
+        }
+
+        public override double Perimetro()
+        {
+            return 2 * lado + 2 * altura;
+        }
+    }
+}
