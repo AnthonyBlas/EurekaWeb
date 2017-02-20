@@ -1,0 +1,93 @@
+using AppDemo08.Model;
+using AppDemo08.Service;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AppDemo08.View
+{
+    public partial class FiguraView : Form
+    {
+        public FiguraView()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            procesar();
+        }
+
+        Figura obj;
+        private void procesar()
+        {
+            switch (cboFigura.SelectedIndex)
+            {
+                case 1:
+                    obj = new Cuadrado(double.Parse(txtValor1.Text));
+                    break;
+                case 2:
+                    obj = new Circulo(double.Parse(txtValor1.Text));
+                    break;
+                case 3:
+                    obj = new Triangulo(double.Parse(txtValor1.Text), double.Parse(txtValor2.Text));
+                    break;
+                case 0:
+                    MessageBox.Show("Seleccione Figura", "Aviso");
+                    return;
+            }
+            txtResultado.Clear();
+            txtResultado.AppendText("Area : " + obj.Area() +
+                                    "\n" + "Perimetro : " + obj.Perimetro());
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboFigura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboFigura.SelectedIndex)
+            {
+                case 1:
+                    label2.Text = "Lado";
+                    label3.Hide();
+                    txtValor2.Hide();
+                    break;
+                case 2:
+                    label2.Text = "Radio";
+                    label3.Hide();
+                    txtValor2.Hide();
+                    break;
+                case 3:
+                    label2.Text = "altura";
+                    label3.Text = "Base";
+                    label3.Show();
+                    txtValor2.Show();
+                    break;
+            }
+        }
+
+        private void txtValor1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValor2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResultado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
